@@ -1,5 +1,6 @@
 package com.jmdelafuente.citiboxdemo.implementations.network
 
+import android.net.Uri
 import android.util.Log
 import com.jmdelafuente.citiboxdemo.enums.ResponseErrors
 import com.jmdelafuente.citiboxdemo.interfaces.listeners.ListenerCharacters
@@ -20,9 +21,9 @@ class NetworkController: INetworkController {
                     response.body()?.let {body->
                         episodes.addAll(body.results)
                         if (body.info.next.isNotEmpty()) {
-                            callGetEpisodes(this)
-                            NetworkBuilder().getRestService().getEpisodes()
-                                .enqueue(this)
+                            val uri = Uri.parse(body.info.next)
+
+                            callGetNextEpisodes(this, uri.getQueryParameter("page")!!)
                         } else {
                             listener.getEpisodesOK(episodes)
                         }
@@ -37,12 +38,13 @@ class NetworkController: INetworkController {
 
             }
         }
-        callGetEpisodes(responseInterface)
+        NetworkBuilder().getRestService().getEpisodes()
+            .enqueue(responseInterface)
 
     }
 
-    private fun callGetEpisodes(callback: Callback<NetworkClasses.Episodes>) {
-        NetworkBuilder().getRestService().getEpisodes()
+    private fun callGetNextEpisodes(callback: Callback<NetworkClasses.Episodes>, page: String) {
+        NetworkBuilder().getRestService().getNextEpisodes(page)
             .enqueue(callback)
     }
 

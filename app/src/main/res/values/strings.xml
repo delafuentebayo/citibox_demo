@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">CitiboxDemo</string>
     <string name="episodes">Episodios</string>
+    <string name="rick_and_morty">Rick y Morty</string>
+    <string name="episode_title">Título: %1$s</string>
+    <string name="episode_code">Código: %1$s</string>
+    <string name="no_connection">No hay conexión</string>
+    <string name="server_error">Error en el servidor</string>
+    <string name="season_1">Temporada 1</string>
+    <string name="season_2">Temporada 2</string>
+    <string name="season_3">Temporada 3</string>
+    <string name="season_4">Temporada 4</string>
 </resources>
