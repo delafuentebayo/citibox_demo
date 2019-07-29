@@ -10,5 +10,8 @@ interface NetworkInterface {
     @GET("episode")
     fun getEpisodes(): Call<NetworkClasses.Episodes>
 
+    @GET("episode")
+    fun getNextEpisodes(@Query("page") page: String): Call<NetworkClasses.Episodes>
+
 
 }

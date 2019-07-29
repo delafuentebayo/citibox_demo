@@ -3,17 +3,15 @@ package com.jmdelafuente.citiboxdemo.activities.MainActivity
 import android.os.Parcel
 import android.os.Parcelable
 
-class MainActivityModel (private val season: String, private val code: Int, private val title: String) : Parcelable {
+data class MainActivityModel (val code: String, val title: String) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
-        parcel.readInt(),
         parcel.readString()
     ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(season)
-        parcel.writeInt(code)
+        parcel.writeString(code)
         parcel.writeString(title)
     }
 
