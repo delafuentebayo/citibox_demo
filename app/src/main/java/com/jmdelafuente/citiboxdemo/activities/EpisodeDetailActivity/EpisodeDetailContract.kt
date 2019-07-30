@@ -1,4 +1,4 @@
-package com.jmdelafuente.citiboxdemo.activities.MainActivity
+package com.jmdelafuente.citiboxdemo.activities.EpisodeDetailActivity
 
 import com.jmdelafuente.citiboxdemo.activities.BasePresenter
 import com.jmdelafuente.citiboxdemo.enums.ResponseErrors
@@ -6,14 +6,14 @@ import com.jmdelafuente.citiboxdemo.enums.SeasonCodes
 import com.jmdelafuente.citiboxdemo.models.ActivityModels
 
 
-class MainContract {
+class EpisodeDetailContract {
     interface View  {
-        fun showEpisodes(episodes: List<ActivityModels.MainActivityModel>, seasons: List<SeasonCodes>)
+        fun showCharacters()
         fun showError(error: ResponseErrors)
 
     }
 
     interface Presenter: BasePresenter<View> {
-        fun getEpisodes()
+        fun getCharacters()
     }
 }
