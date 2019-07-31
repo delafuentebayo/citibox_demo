@@ -2,9 +2,9 @@ package com.jmdelafuente.citiboxdemo.depinj.components
 
 import com.jmdelafuente.citiboxdemo.activities.EpisodeDetailActivity.EpisodeDetailActivity
 import com.jmdelafuente.citiboxdemo.activities.MainActivity.MainActivity
+import com.jmdelafuente.citiboxdemo.depinj.modules.ActivityModule
 import com.jmdelafuente.citiboxdemo.depinj.modules.PresenterModule
 import com.jmdelafuente.citiboxdemo.depinj.scopes.PerActivity
-import com.upring.contacts.di.module.ActivityModule
 import dagger.Component
 
 
