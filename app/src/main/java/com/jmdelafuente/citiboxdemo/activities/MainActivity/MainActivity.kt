@@ -11,6 +11,7 @@ import com.jmdelafuente.citiboxdemo.depinj.components.DaggerActivityComponent
 import com.jmdelafuente.citiboxdemo.depinj.components.DaggerAppComponent
 import com.jmdelafuente.citiboxdemo.enums.ResponseErrors
 import com.jmdelafuente.citiboxdemo.enums.SeasonCodes
+import com.jmdelafuente.citiboxdemo.models.ActivityModels
 import com.upring.contacts.di.module.ActivityModule
 import com.upring.contacts.di.module.AppModule
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         presenter.getEpisodes()
     }
 
-    override fun showEpisodes(episodes: List<MainActivityModel>, seasons: List<SeasonCodes>) {
+    override fun showEpisodes(episodes: List<ActivityModels.MainActivityModel>, seasons: List<SeasonCodes>) {
         initializeRecyclerView(episodes, seasons)
     }
 
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         }
     }
 
-    private fun initializeRecyclerView(episodes: List<MainActivityModel>, seasons: List<SeasonCodes>) {
+    private fun initializeRecyclerView(episodes: List<ActivityModels.MainActivityModel>, seasons: List<SeasonCodes>) {
         main_rv.layoutManager = LinearLayoutManager(this)
         main_rv.adapter = EpisodesRecyclerAdapter(this, episodes)
         main_rv.addItemDecoration(RecyclerViewEpisodesHeader(resources.getDimensionPixelSize(R.dimen.height_header),

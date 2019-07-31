@@ -10,4 +10,10 @@
     <string name="season_2">Temporada 2</string>
     <string name="season_3">Temporada 3</string>
     <string name="season_4">Temporada 4</string>
+    <string name="episode_detail">Detalle del episodio</string>
+    <string name="all">Todos</string>
+    <string name="show_characters">Mostrar personajes:</string>
+    <string name="alive">Vivos</string>
+    <string name="died">Muertos</string>
+    <string name="unknown">Desconocidos</string>
 </resources>
