@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.github.loadingview.LoadingDialog
 import com.jmdelafuente.citiboxdemo.R
 import com.jmdelafuente.citiboxdemo.adapters.EpisodesRecyclerAdapter
 import com.jmdelafuente.citiboxdemo.adapters.RecyclerViewEpisodesHeader
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     @Inject
     lateinit var presenter: MainContract.Presenter
-
+    private lateinit var dialog:LoadingDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,13 +31,17 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             activityModule(ActivityModule(this)).build().inject(this)
         presenter.attach(this)
         presenter.getEpisodes()
+        dialog = LoadingDialog[this].show()
+
     }
 
     override fun showEpisodes(episodes: List<ActivityModels.MainActivityModel>, seasons: List<SeasonCodes>) {
+        dialog.hide()
         initializeRecyclerView(episodes, seasons)
     }
 
     override fun showError(error: ResponseErrors) {
+        dialog.hide()
         when(error){
             ResponseErrors.NO_CONNECTION -> Toast.makeText(this, getString(R.string.no_connection), Toast.LENGTH_LONG).show()
             ResponseErrors.SERVER_ERROR -> Toast.makeText(this, getString(R.string.server_error), Toast.LENGTH_LONG).show()

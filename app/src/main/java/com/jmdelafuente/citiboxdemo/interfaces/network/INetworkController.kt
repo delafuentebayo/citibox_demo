@@ -6,5 +6,5 @@ import com.jmdelafuente.citiboxdemo.models.NetworkClasses
 
 interface INetworkController {
     fun getEpisodes(listener: ListenerEpisodes)
-    fun getCharacters(charactersId: ArrayList<Int>, listener: ListenerCharacters)
+    fun getCharacters(charactersId: List<Int>, listener: ListenerCharacters)
 }

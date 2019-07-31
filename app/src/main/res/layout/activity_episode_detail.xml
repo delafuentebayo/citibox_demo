@@ -53,7 +53,7 @@
                    android:layout_height="@dimen/image_22"
                     android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-        android:src="@android:drawable/arrow_down_float"/>
+        android:src="@drawable/ic_arrow_drop_down_circle"/>
     </RelativeLayout>
 
     <RadioGroup
@@ -100,7 +100,8 @@
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/episode_detail_rv"
             android:layout_marginTop="@dimen/margin_15"
+            android:background="@color/colorPrimaryDark"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
     />
 </LinearLayout>
