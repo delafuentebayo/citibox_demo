@@ -1,4 +1,4 @@
-package com.upring.contacts.di.module
+package com.jmdelafuente.citiboxdemo.depinj.modules
 
 import com.jmdelafuente.citiboxdemo.implementations.network.NetworkController
 import com.jmdelafuente.citiboxdemo.interfaces.network.INetworkController

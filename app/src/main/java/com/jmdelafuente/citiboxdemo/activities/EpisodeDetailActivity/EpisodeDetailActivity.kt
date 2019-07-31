@@ -13,11 +13,11 @@ import com.jmdelafuente.citiboxdemo.depinj.components.DaggerActivityComponent
 import com.jmdelafuente.citiboxdemo.depinj.components.DaggerAppComponent
 import com.jmdelafuente.citiboxdemo.enums.ResponseErrors
 import com.jmdelafuente.citiboxdemo.models.ActivityModels
-import com.upring.contacts.di.module.ActivityModule
-import com.upring.contacts.di.module.AppModule
 import kotlinx.android.synthetic.main.activity_episode_detail.*
 import javax.inject.Inject
 import android.widget.RadioGroup
+import com.jmdelafuente.citiboxdemo.depinj.modules.ActivityModule
+import com.jmdelafuente.citiboxdemo.depinj.modules.AppModule
 import com.jmdelafuente.citiboxdemo.enums.StatusFilter
 
 

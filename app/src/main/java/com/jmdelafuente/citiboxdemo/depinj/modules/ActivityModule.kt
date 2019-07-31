@@ -1,4 +1,4 @@
-package com.upring.contacts.di.module
+package com.jmdelafuente.citiboxdemo.depinj.modules
 
 import android.app.Activity
 import com.jmdelafuente.citiboxdemo.depinj.scopes.PerActivity
