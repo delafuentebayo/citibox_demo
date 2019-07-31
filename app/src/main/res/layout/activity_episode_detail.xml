@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_15"
+        android:orientation="vertical"
+        android:animateLayoutChanges="true"
+        tools:context=".activities.EpisodeDetailActivity.EpisodeDetailActivity">
+    <TextView
+            android:id="@+id/episode_detail_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_18"
+            android:text="@string/episode_title"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end"
+    />
+    <TextView
+            android:id="@+id/episode_detail_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_15"
+            android:textSize="@dimen/text_15"
+            android:textStyle="bold"
+            android:text="@string/episode_code"
+    />
+
+    <View android:layout_width="match_parent"
+          android:layout_height="@dimen/height_divider"
+          android:layout_marginTop="@dimen/margin_15"
+          android:background="@color/colorPrimary"/>
+    <RelativeLayout
+            android:id="@+id/episode_detail_show_filter_rl"
+            android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_15"
+                android:textSize="@dimen/text_15"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/episode_detail_show_filter_iv"
+                android:text="@string/show_characters"
+        />
+        <ImageView
+                android:id="@+id/episode_detail_show_filter_iv"
+                android:layout_width="@dimen/image_22"
+                   android:layout_height="@dimen/image_22"
+                    android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+        android:src="@drawable/ic_arrow_drop_down_circle"/>
+    </RelativeLayout>
+
+    <RadioGroup
+            android:id="@+id/episode_detail_filter_rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/margin_15"
+            android:orientation="vertical">
+        <RadioButton
+                android:id="@+id/episode_detail_filter_all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/all"/>
+
+        <RadioButton
+                android:id="@+id/episode_detail_filter_alive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/alive"/>
+        <RadioButton
+                android:id="@+id/episode_detail_filter_died"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/died"/>
+
+        <RadioButton
+                android:id="@+id/episode_detail_filter_unknown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/unknown"/>
+
+    </RadioGroup>
+
+    <View android:layout_width="match_parent"
+          android:layout_height="@dimen/height_divider"
+          android:layout_marginTop="@dimen/margin_15"
+          android:background="@color/colorPrimary"/>
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/episode_detail_rv"
+            android:layout_marginTop="@dimen/margin_15"
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+    />
+</LinearLayout>
