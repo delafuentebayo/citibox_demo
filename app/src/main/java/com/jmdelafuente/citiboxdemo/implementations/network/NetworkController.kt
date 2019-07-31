@@ -50,7 +50,24 @@ class NetworkController: INetworkController {
 
 
 
-    override fun getCharacters(charactersId: ArrayList<Int>, listener: ListenerCharacters) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getCharacters(charactersId: List<Int>, listener: ListenerCharacters) {
+        NetworkBuilder().getRestService().getCharacters(charactersId)
+            .enqueue(object : Callback<ArrayList<NetworkClasses.Character>> {
+                override fun onResponse(call: Call<ArrayList<NetworkClasses.Character>>, response: Response<ArrayList<NetworkClasses.Character>>) {
+                    if (response.isSuccessful) {
+                        response.body()?.let {
+                            listener.getCharactersOK(it)
+                        }?:run {
+                            listener.getCharactersKO(ResponseErrors.SERVER_ERROR)
+                        }
+                    } else {
+                        listener.getCharactersKO(ResponseErrors.SERVER_ERROR)
+                    }
+                }
+                override fun onFailure(call: Call<ArrayList<NetworkClasses.Character>>, t: Throwable) {
+                    listener.getCharactersKO(ResponseErrors.NO_CONNECTION)
+
+                }
+            })
     }
 }
